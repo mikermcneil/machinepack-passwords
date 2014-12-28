@@ -13,7 +13,8 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "machine": "^1.1.0"
+    "machine": "^1.1.0",
+    "bcrypt": "^0.8.0"
   },
   "machinepack": {
     "friendlyName": "Passwords",

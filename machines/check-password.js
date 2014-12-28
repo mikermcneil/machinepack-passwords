@@ -3,13 +3,13 @@ module.exports = {
   description: 'Compare a plaintext password attempt against an already-encrypted version.',
   extendedDescription: 'Useful for checking a password attempt against the stored, already-encrypted BCrypt hash.',
   inputs: {
-    'string': {
+    'passwordAttempt': {
       example: 'l0lcatzz',
       friendlyName: 'Password attempt',
       description: 'The password attempt (unencrypted).',
       required: true
     },
-    'hash': {
+    'encryptedPassword': {
       example: 'as34hafsu#w34ndcarok',
       friendlyName: 'Encrypted password',
       description: 'The existing (already-encrypted) password hash to compare against.',
@@ -31,7 +31,7 @@ module.exports = {
     }
   },
   fn: function(inputs, exits) {
-    require('bcrypt').compare(inputs.string, inputs.hash, function(err, ok) {
+    require('bcrypt').compare(inputs.passwordAttempt, inputs.encryptedPassword, function(err, ok) {
       if (err) {
         return exits.error(err);
       } else if (!ok) {

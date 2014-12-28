@@ -10,7 +10,7 @@ module.exports = {
       required: true
     },
     'salt': {
-      example: 'foo',
+      example: 23952359,
       friendlyName: 'Salt',
       description: 'Optional salt to use with the hash'
     }
@@ -27,18 +27,15 @@ module.exports = {
   },
   fn: function(inputs, exits) {
 
-    var salt = salt ? (isNaN(parseInt(salt,10)) ? salt : parseInt(salt,10)) : 10;
-    try {
-      require('bcrypt').hash(inputs.string, salt, function(err, hash) {
-        if (err) {
-          return exits.error(err);
-        } else {
-          return exits.then(hash);
-        }
-      });
-    } catch (e) {
-      return exits.error(e);
-    }
+    var salt = inputs.salt ? (isNaN(parseInt(inputs.salt,10)) ? salt : parseInt(inputs.salt,10)) : 10;
+    require('bcrypt').hash(inputs.password, salt, function(err, hash) {
+      if (err) {
+        return exits.error(err);
+      } else {
+        return exits.then(hash);
+      }
+    });
+    return exits.error(e);
 
   }
 
