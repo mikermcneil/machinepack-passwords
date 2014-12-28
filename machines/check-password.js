@@ -16,13 +16,13 @@ module.exports = {
       required: true
     }
   },
-  defaultExit: 'match',
+  defaultExit: 'success',
   exits: {
-    'match': {
+    'success': {
       void: true,
       description: 'Password attempt matches already-encrypted version'
     },
-    'no_match': {
+    'noMatch': {
       void: true,
       description: 'Password attempt does not match already-encrypted version'
     },
@@ -34,11 +34,12 @@ module.exports = {
     require('bcrypt').compare(inputs.passwordAttempt, inputs.encryptedPassword, function(err, ok) {
       if (err) {
         return exits.error(err);
-      } else if (!ok) {
-        return exits.no_match();
-      } else {
-        return exits.match();
       }
+      if (!ok) {
+        return exits.noMatch();
+      }
+
+      return exits.success();
     });
   }
 

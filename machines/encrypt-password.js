@@ -10,11 +10,11 @@ module.exports = {
       required: true
     }
   },
-  defaultExit: 'then',
+  defaultExit: 'success',
   exits: {
-    'then': {
-      example: 'abc3fadifhoi3hesdqd',
-      description: 'String was successfully encrypted'
+    'success': {
+      example: '2$a492.abc3fadifhoi3hesdqd',
+      description: 'Password was successfully encrypted.'
     },
     'error': {
       description: 'An unexpected error occured.'
@@ -29,11 +29,9 @@ module.exports = {
     require('bcrypt').hash(inputs.password, difficulty, function(err, hash) {
       if (err) {
         return exits.error(err);
-      } else {
-        return exits.then(hash);
       }
+      return exits.success(hash);
     });
-    return exits.error(e);
 
   }
 
