@@ -8,11 +8,6 @@ module.exports = {
       friendlyName: 'Password',
       description: 'String to be encrypted',
       required: true
-    },
-    'salt': {
-      example: 23952359,
-      friendlyName: 'Salt',
-      description: 'Optional salt to use with the hash'
     }
   },
   defaultExit: 'then',
@@ -27,8 +22,11 @@ module.exports = {
   },
   fn: function(inputs, exits) {
 
-    var salt = inputs.salt ? (isNaN(parseInt(inputs.salt,10)) ? salt : parseInt(inputs.salt,10)) : 10;
-    require('bcrypt').hash(inputs.password, salt, function(err, hash) {
+    // `difficulty` indicates how "hard" the encrypted password hash will be to crack.
+    // see https://www.npmjs.com/package/bcrypt for more information.
+    var difficulty = 10;
+
+    require('bcrypt').hash(inputs.password, difficulty, function(err, hash) {
       if (err) {
         return exits.error(err);
       } else {
