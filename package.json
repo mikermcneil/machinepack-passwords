@@ -1,0 +1,26 @@
+{
+  "name": "machinepack-passwords",
+  "version": "0.0.0",
+  "description": "Encrypt or compare passwords.",
+  "scripts": {
+    "test": "echo 'No tests have been written for this machinepack yet'"
+  },
+  "keywords": [
+    "Passwords",
+    "machines",
+    "machinepack"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies":{
+    "machine": "^1.1.0"
+  },
+  "machinepack": {
+    "friendlyName": "Passwords",
+    "machineDir": "machines/",
+    "machines": [
+      "check-password",
+      "encrypt-password"
+    ]
+  }
+}
