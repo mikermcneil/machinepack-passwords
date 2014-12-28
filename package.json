@@ -1,6 +1,6 @@
 {
   "name": "machinepack-passwords",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Encrypt or compare passwords.",
   "scripts": {
     "test": "echo 'No tests have been written for this machinepack yet'"
