@@ -22,7 +22,7 @@ module.exports = {
       void: true,
       description: 'Password attempt matches already-encrypted version'
     },
-    'noMatch': {
+    'incorrect': {
       void: true,
       description: 'Password attempt does not match already-encrypted version'
     },
@@ -36,7 +36,7 @@ module.exports = {
         return exits.error(err);
       }
       if (!ok) {
-        return exits.noMatch();
+        return exits.incorrect();
       }
 
       return exits.success();
