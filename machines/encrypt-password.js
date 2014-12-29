@@ -7,7 +7,8 @@ module.exports = {
       example: 'l0lcatzz',
       friendlyName: 'Password',
       description: 'String to be encrypted',
-      required: true
+      required: true,
+      protect: true
     }
   },
   defaultExit: 'success',

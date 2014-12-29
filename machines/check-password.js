@@ -7,13 +7,15 @@ module.exports = {
       example: 'l0lcatzz',
       friendlyName: 'Password attempt',
       description: 'The password attempt (unencrypted).',
-      required: true
+      required: true,
+      protect: true
     },
     'encryptedPassword': {
       example: 'as34hafsu#w34ndcarok',
       friendlyName: 'Encrypted password',
       description: 'The existing (already-encrypted) password hash to compare against.',
-      required: true
+      required: true,
+      protect: true
     }
   },
   defaultExit: 'success',
