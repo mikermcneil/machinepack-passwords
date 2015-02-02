@@ -16,6 +16,10 @@
     "machine": "^1.1.0",
     "bcrypt": "^0.8.0"
   },
+  "repository":{
+    "url": "https://github.com/mikermcneil/machinepack-passwords.git",
+    "type": "git"
+  },
   "machinepack": {
     "friendlyName": "Passwords",
     "machineDir": "machines/",
