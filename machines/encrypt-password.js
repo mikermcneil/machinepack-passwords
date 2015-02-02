@@ -3,7 +3,7 @@ module.exports = {
   description: 'Encrypt a string using the BCrypt algorithm.',
   extendedDescription: 'This is particularly useful for encrypting user passwords before storing them in the database.',
   inputs: {
-    'password': {
+    password: {
       example: 'l0lcatzz',
       friendlyName: 'Password',
       description: 'String to be encrypted',
@@ -13,11 +13,11 @@ module.exports = {
   },
   defaultExit: 'success',
   exits: {
-    'success': {
+    success: {
       example: '2$a492.abc3fadifhoi3hesdqd',
       description: 'Password was successfully encrypted.'
     },
-    'error': {
+    error: {
       description: 'An unexpected error occured.'
     }
   },
