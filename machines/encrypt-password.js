@@ -9,6 +9,12 @@ module.exports = {
       description: 'String to be encrypted',
       required: true,
       protect: true
+    },
+    difficulty: {
+      example: 10,
+      defaultsTo: 10,
+      description: 'The difficulty index representing how "hard" to encrypted password would be to crack.',
+      extendedDescription: 'See https://www.npmjs.com/package/bcrypt for more information.'
     }
   },
   defaultExit: 'success',
@@ -23,9 +29,7 @@ module.exports = {
   },
   fn: function(inputs, exits) {
 
-    // `difficulty` indicates how "hard" the encrypted password hash will be to crack.
-    // see https://www.npmjs.com/package/bcrypt for more information.
-    var difficulty = 10;
+    var difficulty = inputs.difficulty || 10;
 
     require('bcrypt').hash(inputs.password, difficulty, function(err, hash) {
       if (err) {
