@@ -1,6 +1,6 @@
 {
   "name": "machinepack-passwords",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Encrypt or compare passwords.",
   "scripts": {
     "test": "echo 'No tests have been written for this machinepack yet'"
@@ -16,7 +16,7 @@
     "machine": "^1.1.0",
     "bcrypt": "^0.8.0"
   },
-  "repository":{
+  "repository": {
     "url": "https://github.com/mikermcneil/machinepack-passwords.git",
     "type": "git"
   },
