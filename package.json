@@ -3,22 +3,22 @@
   "version": "2.1.2",
   "description": "Encrypt or compare passwords.",
   "scripts": {
-    "test": "echo 'No tests have been written for this machinepack yet'"
+    "test": "node ./node_modules/test-machinepack-mocha/bin/testmachinepack-mocha.js"
   },
   "keywords": [
     "Passwords",
     "machines",
     "machinepack"
   ],
-  "author": "",
+  "author": "Mike McNeil",
   "license": "MIT",
   "dependencies": {
     "machine": "^1.1.0",
     "bcrypt": "^0.8.0"
   },
   "repository": {
-    "url": "https://github.com/mikermcneil/machinepack-passwords.git",
-    "type": "git"
+    "type": "git",
+    "url": "git@github.com:mikermcneil/machinepack-passwords.git"
   },
   "machinepack": {
     "friendlyName": "Passwords",
@@ -27,5 +27,8 @@
       "check-password",
       "encrypt-password"
     ]
+  },
+  "devDependencies": {
+    "test-machinepack-mocha": "^0.2.2"
   }
 }
