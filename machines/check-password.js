@@ -33,7 +33,7 @@ module.exports = {
     }
   },
   fn: function(inputs, exits) {
-    require('bcrypt').compare(inputs.passwordAttempt, inputs.encryptedPassword, function(err, ok) {
+    require('bcrypt-nodejs').compare(inputs.passwordAttempt, inputs.encryptedPassword, function(err, ok) {
       if (err) {
         return exits.error(err);
       }

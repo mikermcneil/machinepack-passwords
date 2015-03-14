@@ -13,8 +13,8 @@
   "author": "Mike McNeil",
   "license": "MIT",
   "dependencies": {
-    "machine": "^1.1.0",
-    "bcrypt": "^0.8.0"
+    "bcrypt-nodejs": "0.0.3",
+    "machine": "^1.1.0"
   },
   "repository": {
     "type": "git",
