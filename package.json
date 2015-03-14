@@ -1,6 +1,6 @@
 {
   "name": "machinepack-passwords",
-  "version": "2.1.3",
+  "version": "2.2.0",
   "description": "Encrypt or compare passwords.",
   "scripts": {
     "test": "node ./node_modules/test-machinepack-mocha/bin/testmachinepack-mocha.js"
