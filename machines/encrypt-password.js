@@ -23,8 +23,6 @@ module.exports = {
   },
   fn: function(inputs, exits) {
 
-    var difficulty = inputs.difficulty || 10;
-
     require('bcrypt-nodejs').hash(inputs.password, null , null, function(err, hash) {
       if (err) {
         return exits.error(err);
