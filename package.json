@@ -14,7 +14,7 @@
   "license": "MIT",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
-    "machine": "^1.1.0"
+    "machine": "^9.0.3"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,6 @@
     ]
   },
   "devDependencies": {
-    "test-machinepack-mocha": "^0.2.2"
+    "test-machinepack-mocha": "^1.0.0"
   }
 }
