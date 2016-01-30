@@ -25,7 +25,8 @@
     "machineDir": "machines/",
     "machines": [
       "check-password",
-      "encrypt-password"
+      "encrypt-password",
+      "check-password-strength"
     ]
   },
   "devDependencies": {
