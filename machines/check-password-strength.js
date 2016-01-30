@@ -63,11 +63,11 @@ module.exports = {
       specialCharacters: false
     };
     try {
-      matchAll = matchAll && (returnObject.minimumLength = (inputs.password.length >= 8));
-      matchAll = matchAll && (returnObject.upperCaseLetters = (/(?=.*[A-Z])/.test(inputs.password)));
-      matchAll = matchAll && (returnObject.lowerCaseLetters = (/(?=.*[a-z])/.test(inputs.password)));
-      matchAll = matchAll && (returnObject.numbers = (/(?=.*\d)/.test(inputs.password)));
-      matchAll = matchAll && (returnObject.specialCharacters = (/[\W]/.test(inputs.password)));
+      matchAll = (returnObject.minimumLength = (inputs.password.length >= 8)) && matchAll;
+      matchAll = (returnObject.upperCaseLetters = (/(?=.*[A-Z])/.test(inputs.password))) && matchAll;
+      matchAll = (returnObject.lowerCaseLetters = (/(?=.*[a-z])/.test(inputs.password))) && matchAll;
+      matchAll = (returnObject.numbers = (/(?=.*\d)/.test(inputs.password))) && matchAll;
+      matchAll = (returnObject.specialCharacters = (/[\W]/.test(inputs.password))) && matchAll;
     } catch (e) {
       return exits.error(e);
     }
