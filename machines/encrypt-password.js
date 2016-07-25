@@ -14,10 +14,8 @@ module.exports = {
 
     password: {
       example: 'l0lcatzz',
-      friendlyName: 'Password',
-      description: 'String to be encrypted',
+      description: 'String to be encrypted.',
       required: true,
-      protect: true
     }
 
   },
@@ -26,13 +24,10 @@ module.exports = {
   exits: {
 
     success: {
-      example: '2$a492.abc3fadifhoi3hesdqd',
-      description: 'Password was successfully encrypted.'
+      outputFriendlyName: 'Encrypted password',
+      outputExample: '2$a492.abc3fadifhoi3hesdqd',
+      outputDescription: 'The encrypted version of the input password.'
     },
-
-    error: {
-      description: 'An unexpected error occured.'
-    }
 
   },
 

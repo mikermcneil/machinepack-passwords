@@ -13,30 +13,23 @@ module.exports = {
   inputs: {
     passwordAttempt: {
       example: 'l0lcatzz',
-      friendlyName: 'Password attempt',
       description: 'The password attempt (unencrypted).',
       required: true,
-      protect: true
     },
     encryptedPassword: {
       example: 'as34hafsu#w34ndcarok',
-      friendlyName: 'Encrypted password',
       description: 'The existing (already-encrypted) password hash to compare against.',
       required: true,
-      protect: true
     }
   },
 
 
   exits: {
     success: {
-      description: 'Password attempt matches already-encrypted version'
+      description: 'Password attempt matched already-encrypted version.'
     },
     incorrect: {
-      description: 'Password attempt does not match already-encrypted version'
-    },
-    error: {
-      description: 'An unexpected error occurred'
+      description: 'Password attempt did not match already-encrypted version.'
     }
   },
 
