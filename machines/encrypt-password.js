@@ -33,10 +33,19 @@ module.exports = {
 
 
   fn: function(inputs, exits) {
-    require('bcrypt-nodejs').hash(inputs.password, null , null, function(err, hash) {
+
+    // Import native `bcrypt` module.
+    require('bcrypt-nodejs');
+
+    // Hash the plaintext password.
+    bcrypt.hash(inputs.password, null , null, function(err, hash) {
+
+      // Forward any errors to our `error` exit.
       if (err) {
         return exits.error(err);
       }
+
+      // Return the hashed password through the `success` exit.
       return exits.success(hash);
     });
   }

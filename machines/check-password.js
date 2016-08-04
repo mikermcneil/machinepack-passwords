@@ -35,14 +35,25 @@ module.exports = {
 
 
   fn: function(inputs, exits) {
-    require('bcrypt-nodejs').compare(inputs.passwordAttempt, inputs.encryptedPassword, function(err, ok) {
+
+    // Import native `bcrypt` module.
+    var bcrypt = require('bcrypt-nodejs');
+
+    // Run `compare` to compare the plaintext and encrypted passwords
+    // in constant time.
+    bcrypt.compare(inputs.passwordAttempt, inputs.encryptedPassword, function(err, ok) {
+
+      // Forward any errors to our `error` exit.
       if (err) {
         return exits.error(err);
       }
+
+      // If the passwords don't match, return through the `incorrect` exit.
       if (!ok) {
         return exits.incorrect();
       }
 
+      // Otherwise return through the `success` exit.
       return exits.success();
     });
   }
