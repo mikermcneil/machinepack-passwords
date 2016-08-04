@@ -35,7 +35,7 @@ module.exports = {
   fn: function(inputs, exits) {
 
     // Import native `bcrypt` module.
-    require('bcrypt-nodejs');
+    var bcrypt = require('bcrypt-nodejs');
 
     // Hash the plaintext password.
     bcrypt.hash(inputs.password, null , null, function(err, hash) {
