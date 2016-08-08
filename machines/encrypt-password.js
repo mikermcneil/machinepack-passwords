@@ -10,6 +10,9 @@ module.exports = {
   extendedDescription: 'This is particularly useful for encrypting user passwords before storing them in the database.',
 
 
+  sideEffects: 'cacheable',
+
+
   inputs: {
 
     password: {

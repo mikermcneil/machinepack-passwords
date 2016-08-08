@@ -10,6 +10,9 @@ module.exports = {
   extendedDescription: 'Useful for checking a password attempt against the stored, already-encrypted BCrypt hash.',
 
 
+  sideEffects: 'cacheable',
+
+
   inputs: {
 
     passwordAttempt: {
