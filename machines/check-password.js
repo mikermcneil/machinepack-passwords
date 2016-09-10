@@ -4,10 +4,11 @@ module.exports = {
   friendlyName: 'Check password',
 
 
-  description: 'Compare a plaintext password attempt against an already-encrypted version.',
+  description: 'Compare a plaintext password attempt against an already-encrypted Bcrypt hash.',
 
 
-  extendedDescription: 'Useful for checking a password attempt against the stored, already-encrypted BCrypt hash.',
+  extendedDescription: 'Useful for checking a password attempt against the stored, already-encrypted BCrypt hash, '+
+  'e.g. stored in your database.',
 
 
   sideEffects: 'cacheable',
@@ -24,6 +25,9 @@ module.exports = {
     encryptedPassword: {
       example: 'as34hafsu#w34ndcarok',
       description: 'The existing (already-encrypted) password hash to compare against.',
+      whereToGet: {
+        description: 'Use the "Encrypt password" machine to encrypt/hash a password.',
+      },
       required: true,
     }
 
@@ -33,7 +37,7 @@ module.exports = {
   exits: {
 
     success: {
-      description: 'Password attempt matched already-encrypted version.'
+      description: 'Password attempt matched the already-encrypted version.'
     },
 
     incorrect: {
