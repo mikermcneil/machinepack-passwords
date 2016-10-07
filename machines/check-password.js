@@ -1,13 +1,14 @@
 module.exports = {
 
 
-  friendlyName: 'Check password',
+  friendlyName: 'Check password attempt',
 
 
-  description: 'Compare a plaintext password attempt against an already-encrypted version.',
+  description: 'Compare a plaintext password attempt against an already-encrypted Bcrypt hash.',
 
 
-  extendedDescription: 'Useful for checking a password attempt against the stored, already-encrypted BCrypt hash.',
+  extendedDescription: 'Useful for checking a password attempt against the stored, already-encrypted BCrypt hash, '+
+  'e.g. stored in your database.',
 
 
   sideEffects: 'cacheable',
@@ -22,8 +23,16 @@ module.exports = {
     },
 
     encryptedPassword: {
-      example: 'as34hafsu#w34ndcarok',
-      description: 'The existing (already-encrypted) password hash to compare against.',
+      example: '2$a492.abc3fadifhoi3hesdqd',
+      friendlyName: 'Encrypted password (hash)',
+      description: 'An existing, already-encrypted password hash to compare against.',
+      whereToGet: {
+        description: 'Look up the encrypted password hash stored for this user in your database.',
+        extendedDescription: 'For example, when a user signs up, your route could use the "Encrypt password" machine '+
+        'to perform one-way (irreversible) encryption on their password.  This uses the BCrypt algorithm to generate a '+
+        'secure, encrypted password hash, which you could then go on to include in a new record in your User model.  '+
+        'This encrypted password hash is much safer to store in your database than a raw, unencrypted password would be.'
+      },
       required: true,
     }
 
@@ -33,7 +42,7 @@ module.exports = {
   exits: {
 
     success: {
-      description: 'Password attempt matched already-encrypted version.'
+      description: 'Password attempt matched the already-encrypted version.'
     },
 
     incorrect: {
