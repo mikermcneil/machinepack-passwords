@@ -23,7 +23,7 @@ module.exports = {
 
     password: {
       example: 'l0lcatzz',
-      description: 'String to be encrypted.',
+      description: 'The password to be irreversibly encrypted.',
       required: true,
     }
 
@@ -33,9 +33,9 @@ module.exports = {
   exits: {
 
     success: {
-      outputFriendlyName: 'Encrypted password',
+      outputFriendlyName: 'Encrypted password (hash)',
       outputExample: '2$a492.abc3fadifhoi3hesdqd',
-      outputDescription: 'The encrypted version of the input password.'
+      outputDescription: 'The encrypted password hash generated from the provided password.'
     },
 
   },
