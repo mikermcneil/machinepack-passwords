@@ -1,7 +1,7 @@
 module.exports = {
 
 
-  friendlyName: 'Check password',
+  friendlyName: 'Check password attempt',
 
 
   description: 'Compare a plaintext password attempt against an already-encrypted Bcrypt hash.',
@@ -26,7 +26,11 @@ module.exports = {
       example: 'as34hafsu#w34ndcarok',
       description: 'The existing (already-encrypted) password hash to compare against.',
       whereToGet: {
-        description: 'Use the "Encrypt password" machine to encrypt/hash a password.',
+        description: 'Look up the already-encrypted password hash stored for this user in your database.',
+        extendedDescription: 'For example, when a user signs up, your route could use the "Encrypt password" machine '+
+        'to perform one-way encryption on their password.  This uses the BCrypt algorithm, to generate a secure '+
+        'password "hash" that you can then safely store in your database (i.e. when you create a new record for the '+
+        'user in your User model.)',
       },
       required: true,
     }
