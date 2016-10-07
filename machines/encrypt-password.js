@@ -4,11 +4,13 @@ module.exports = {
   friendlyName: 'Encrypt password',
 
 
-  description: 'Encrypt/hash a password using the BCrypt algorithm.',
+  description: 'Perform one-way encryption on a password using the BCrypt algorithm.',
 
 
-  extendedDescription: 'The BCrypt algorithm is _one-way_-- in other words, passwords hashed/encrypted this way '+
-  '_cannot be decrypted_.  This is ideal for encrypting user passwords before storing them in the database.',
+  extendedDescription: 'The BCrypt algorithm is _one-way_-- in other words, passwords encrypted (aka "hashed") this way '+
+  '_cannot be decrypted_.  This is ideal for encrypting user passwords before storing them in the database, for example '+
+  'when a new user signs up for an account.  To _check_ a password attempt, for example when an existing user tries to '+
+  'sign in, use **Check password attempt**.',
   
   
   moreInfoUrl: 'https://en.wikipedia.org/wiki/Bcrypt',
