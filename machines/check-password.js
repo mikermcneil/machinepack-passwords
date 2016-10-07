@@ -23,15 +23,15 @@ module.exports = {
     },
 
     encryptedPassword: {
-      example: 'as34hafsu#w34ndcarok',
-      friendlyName: 'Already-encrypted password hash',
-      description: 'The existing (already-encrypted) password hash to compare against.',
+      example: '2$a492.abc3fadifhoi3hesdqd',
+      friendlyName: 'Encrypted password (hash)',
+      description: 'An existing, already-encrypted password hash to compare against.',
       whereToGet: {
-        description: 'Look up the already-encrypted password hash stored for this user in your database.',
+        description: 'Look up the encrypted password hash stored for this user in your database.',
         extendedDescription: 'For example, when a user signs up, your route could use the "Encrypt password" machine '+
-        'to perform one-way encryption on their password.  This uses the BCrypt algorithm, to generate a secure '+
-        'password "hash" that you can then safely store in your database (i.e. when you create a new record for the '+
-        'user in your User model.)',
+        'to perform one-way (irreversible) encryption on their password.  This uses the BCrypt algorithm to generate a '+
+        'secure, encrypted password hash, which you could then go on to include in a new record in your User model.  '+
+        'This encrypted password hash is much safer to store in your database than a raw, unencrypted password would be.'
       },
       required: true,
     }
