@@ -24,6 +24,7 @@ module.exports = {
 
     encryptedPassword: {
       example: 'as34hafsu#w34ndcarok',
+      friendlyName: 'Already-encrypted password hash',
       description: 'The existing (already-encrypted) password hash to compare against.',
       whereToGet: {
         description: 'Look up the already-encrypted password hash stored for this user in your database.',
