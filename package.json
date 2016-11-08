@@ -3,7 +3,7 @@
   "version": "2.3.0",
   "description": "Encrypt or compare passwords.",
   "scripts": {
-    "test": "node ./node_modules/test-machinepack-mocha/bin/testmachinepack-mocha.js && mocha tests/** -R spec"
+    "test": "node ./node_modules/test-machinepack-mocha/bin/testmachinepack-mocha.js && mocha tests/*.js"
   },
   "keywords": [
     "Passwords",
