@@ -52,7 +52,7 @@ module.exports = {
     // Import pure js `bcrypt` module.
     var bcrypt = require('bcryptjs');
 
-    let iterations = inputs.depth || 10;
+    var iterations = inputs.depth || 10;
 
     //Get some salt base on iterations
     bcrypt.genSalt(iterations, function(err, salt) {
