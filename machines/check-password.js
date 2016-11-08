@@ -54,8 +54,8 @@ module.exports = {
 
   fn: function(inputs, exits) {
 
-    // Import native `bcrypt` module.
-    var bcrypt = require('bcrypt-nodejs');
+    // Import pure js `bcrypt` module.
+    var bcrypt = require('bcryptjs');
 
     // Run `compare` to compare the plaintext and encrypted passwords
     // in constant time.

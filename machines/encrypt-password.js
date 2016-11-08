@@ -25,6 +25,12 @@ module.exports = {
       example: 'l0lcatzz',
       description: 'The password to be irreversibly encrypted.',
       required: true,
+    },
+
+    depth: {
+      example: 10,
+      description: 'The hash number of iterations to apply',
+      required: false
     }
 
   },
@@ -43,19 +49,24 @@ module.exports = {
 
   fn: function(inputs, exits) {
 
-    // Import native `bcrypt` module.
-    var bcrypt = require('bcrypt-nodejs');
+    // Import pure js `bcrypt` module.
+    var bcrypt = require('bcryptjs');
 
-    // Hash the plaintext password.
-    bcrypt.hash(inputs.password, null , null, function(err, hash) {
+    let iterations = inputs.depth || 10;
 
-      // Forward any errors to our `error` exit.
-      if (err) {
-        return exits.error(err);
-      }
+    //Get some salt base on iterations
+    bcrypt.genSalt(iterations, function(err, salt) {
+      // Hash the plaintext password.
+      bcrypt.hash(inputs.password, salt, function(err, hash) {
 
-      // Return the hashed password through the `success` exit.
-      return exits.success(hash);
+        // Forward any errors to our `error` exit.
+        if (err) {
+          return exits.error(err);
+        }
+
+        // Return the hashed password through the `success` exit.
+        return exits.success(hash);
+      });
     });
   }
 
