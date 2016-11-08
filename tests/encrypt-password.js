@@ -46,4 +46,36 @@ describe('machinepack-passwords :: encrypt-password', function() {
 
   });
 
+  it ('should encrypt a string with default iteration number into a password that will have same iteration number information', function(done) {
+
+    var password = "what do you call a frog that that got turned inside out";
+    Passwords.encryptPassword({
+      password: password,
+      // depth: 10
+    }).exec({
+      error: done,
+      success: function(encryptedPassword) {
+        assert.match(encryptedPassword, /^\$2[a-zA-Z]\$10\$/, 'encryption depth matches');
+        done();
+      }
+    });
+
+  });
+
+  it ('should encrypt a string with custom iteration number into a password that will have same iteration number information', function(done) {
+
+    var password = "what do you call a frog that that got turned inside out";
+    Passwords.encryptPassword({
+      password: password,
+      depth: 5
+    }).exec({
+      error: done,
+      success: function(encryptedPassword) {
+        assert.match(encryptedPassword, /^\$2[a-zA-Z]\$0?5\$/, 'encryption depth matches');
+        done();
+      }
+    });
+
+  });
+
 });
