@@ -1,3 +1,4 @@
+var assert = require('chai').assert;
 var Passwords = require('../');
 
 describe('machinepack-passwords :: encrypt-password', function() {
