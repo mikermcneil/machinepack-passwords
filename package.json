@@ -13,7 +13,7 @@
   "author": "Mike McNeil",
   "license": "MIT",
   "dependencies": {
-    "bcryptjs": "^2.3.0",
+    "bcryptjs": "2.3.0",
     "machine": "^13.0.0-0"
   },
   "repository": {
