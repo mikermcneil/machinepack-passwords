@@ -29,7 +29,7 @@ describe('machinepack-passwords :: encrypt-password', function() {
     var password = "what do you call a frog that that got turned inside out";
     Passwords.encryptPassword({
       password: password,
-      depth: 5
+      strength: 5
     }).exec({
       error: done,
       success: function(encryptedPassword) {
@@ -51,11 +51,11 @@ describe('machinepack-passwords :: encrypt-password', function() {
     var password = "what do you call a frog that that got turned inside out";
     Passwords.encryptPassword({
       password: password,
-      // depth: 10
+      // strength: 10
     }).exec({
       error: done,
       success: function(encryptedPassword) {
-        assert.match(encryptedPassword, /^\$2[a-zA-Z]\$10\$/, 'encryption depth matches');
+        assert.match(encryptedPassword, /^\$2[a-zA-Z]\$10\$/, 'encryption cost matches');
         done();
       }
     });
@@ -67,11 +67,11 @@ describe('machinepack-passwords :: encrypt-password', function() {
     var password = "what do you call a frog that that got turned inside out";
     Passwords.encryptPassword({
       password: password,
-      depth: 5
+      strength: 5
     }).exec({
       error: done,
       success: function(encryptedPassword) {
-        assert.match(encryptedPassword, /^\$2[a-zA-Z]\$0?5\$/, 'encryption depth matches');
+        assert.match(encryptedPassword, /^\$2[a-zA-Z]\$0?5\$/, 'encryption cost matches');
         done();
       }
     });

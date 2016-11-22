@@ -11,8 +11,8 @@ module.exports = {
   '_cannot be decrypted_.  This is ideal for encrypting user passwords before storing them in the database, for example '+
   'when a new user signs up for an account.  To _check_ a password attempt, for example when an existing user tries to '+
   'sign in, use **Check password attempt**.',
-  
-  
+
+
   moreInfoUrl: 'https://en.wikipedia.org/wiki/Bcrypt',
 
 
@@ -27,10 +27,12 @@ module.exports = {
       required: true,
     },
 
-    depth: {
+    strength: {
       example: 10,
-      description: 'The hash number of iterations to apply',
-      required: false
+      defaultsTo: 10,
+      description: 'The hash strength.',
+      extendedDescription: 'Strength is measured in this case by the number of iterations it takes to generate the cryptographic key.  Hashes generated with a higher "strength" value will take longer to crack with brute force, but will also take longer to generate.  A minimum of 10 (the default) is recommended.',
+      moreInfoUrl: 'https://en.wikipedia.org/wiki/Bcrypt'
     }
 
   },
@@ -52,22 +54,19 @@ module.exports = {
     // Import pure js `bcrypt` module.
     var bcrypt = require('bcryptjs');
 
-    var iterations = inputs.depth || 10;
+    // Hash the plaintext password.
+    bcrypt.hash(inputs.password, inputs.strength, function(err, hash) {
 
-    //Get some salt base on iterations
-    bcrypt.genSalt(iterations, function(err, salt) {
-      // Hash the plaintext password.
-      bcrypt.hash(inputs.password, salt, function(err, hash) {
+      // Forward any errors to our `error` exit.
+      if (err) {
+        return exits.error(err);
+      }
 
-        // Forward any errors to our `error` exit.
-        if (err) {
-          return exits.error(err);
-        }
+      // Return the hashed password through the `success` exit.
+      return exits.success(hash);
 
-        // Return the hashed password through the `success` exit.
-        return exits.success(hash);
-      });
     });
+
   }
 
 };
