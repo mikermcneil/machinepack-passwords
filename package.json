@@ -1,6 +1,6 @@
 {
   "name": "machinepack-passwords",
-  "version": "2.3.0",
+  "version": "3.0.0-0",
   "description": "Hash and compare passwords using the one-way bcrypt algorithm.",
   "scripts": {
     "test": "npm run lint && npm run custom-tests && echo 'Done.'",
