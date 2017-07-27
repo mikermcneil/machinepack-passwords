@@ -33,7 +33,7 @@ describe('machinepack-passwords :: hash-password', function() {
 
   it ('should encrypt a string with custom iteration number into a password that will match the unencrypted version', function(done) {
 
-    var password = "what do you call a frog that that got turned inside out";
+    var password = 'what do you call a frog that that got turned inside out';
     Passwords.encryptPassword({
       password: password,
       strength: 5
@@ -55,7 +55,7 @@ describe('machinepack-passwords :: hash-password', function() {
 
   it ('should encrypt a string with default iteration number into a password that will have same iteration number information', function(done) {
 
-    var password = "what do you call a frog that that got turned inside out";
+    var password = 'what do you call a frog that that got turned inside out';
     Passwords.encryptPassword({
       password: password,
       // strength: 10
@@ -71,7 +71,7 @@ describe('machinepack-passwords :: hash-password', function() {
 
   it ('should encrypt a string with custom iteration number into a password that will have same iteration number information', function(done) {
 
-    var password = "what do you call a frog that that got turned inside out";
+    var password = 'what do you call a frog that that got turned inside out';
     Passwords.encryptPassword({
       password: password,
       strength: 5
