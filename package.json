@@ -3,7 +3,9 @@
   "version": "2.3.0",
   "description": "Hash and compare passwords using the one-way bcrypt algorithm.",
   "scripts": {
-    "test": "node ./node_modules/test-machinepack-mocha/bin/testmachinepack-mocha.js && mocha tests/*.js"
+    "test": "npm run lint && npm run custom-tests && echo 'Done.'",
+    "lint": "node ./node_modules/eslint/bin/eslint . --max-warnings=0 && echo '✔  Your code looks good.'",
+    "custom-tests": "node ./node_modules/test-machinepack-mocha/bin/testmachinepack-mocha.js && node node_modules/mocha/bin/mocha"
   },
   "keywords": [
     "passwords",
@@ -25,14 +27,15 @@
   "machinepack": {
     "friendlyName": "Passwords",
     "machineDir": "lib/",
-    "lib": [
+    "machines": [
       "check-password",
       "encrypt-password"
     ]
   },
   "devDependencies": {
     "chai": "3.5.0",
+    "eslint": "3.19.0",
     "mocha": "3.0.2",
-    "test-machinepack-mocha": "^2.1.1"
+    "test-machinepack-mocha": "^2.1.7"
   }
 }

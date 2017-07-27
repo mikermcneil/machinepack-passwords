@@ -1,5 +1,12 @@
+/**
+ * Module dependencies
+ */
+
 var assert = require('chai').assert;
 var Passwords = require('../');
+
+
+
 
 describe('machinepack-passwords :: encrypt-password', function() {
 
@@ -8,13 +15,13 @@ describe('machinepack-passwords :: encrypt-password', function() {
     var password = "what do you call a frog that that got turned inside out";
     Passwords.encryptPassword({
       password: password
-    }).exec({
+    }).switch({
       error: done,
       success: function(encryptedPassword) {
         Passwords.checkPassword({
           passwordAttempt: password,
           encryptedPassword: encryptedPassword
-        }).exec({
+        }).switch({
           success: done,
           incorrect: function() {return done(new Error('Triggered the `incorrect` exit!'));},
           error: done
@@ -30,13 +37,13 @@ describe('machinepack-passwords :: encrypt-password', function() {
     Passwords.encryptPassword({
       password: password,
       strength: 5
-    }).exec({
+    }).switch({
       error: done,
       success: function(encryptedPassword) {
         Passwords.checkPassword({
           passwordAttempt: password,
           encryptedPassword: encryptedPassword
-        }).exec({
+        }).switch({
           success: done,
           incorrect: function() {return done(new Error('Triggered the `incorrect` exit!'));},
           error: done
@@ -52,7 +59,7 @@ describe('machinepack-passwords :: encrypt-password', function() {
     Passwords.encryptPassword({
       password: password,
       // strength: 10
-    }).exec({
+    }).switch({
       error: done,
       success: function(encryptedPassword) {
         assert.match(encryptedPassword, /^\$2[a-zA-Z]\$10\$/, 'encryption cost matches');
@@ -68,7 +75,7 @@ describe('machinepack-passwords :: encrypt-password', function() {
     Passwords.encryptPassword({
       password: password,
       strength: 5
-    }).exec({
+    }).switch({
       error: done,
       success: function(encryptedPassword) {
         assert.match(encryptedPassword, /^\$2[a-zA-Z]\$0?5\$/, 'encryption cost matches');
