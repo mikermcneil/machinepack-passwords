@@ -8,11 +8,11 @@ var Passwords = require('../');
 
 
 
-describe('machinepack-passwords :: encrypt-password', function() {
+describe('machinepack-passwords :: hash-password', function() {
 
-  it ('should encrypt a string into a password that will match the unencrypted version when used in `checkPassword`', function(done) {
+  it ('should hash a password such that it matches when compared in `checkPassword`', function(done) {
 
-    var password = "what do you call a frog that that got turned inside out";
+    var password = 'what do you call a frog that that got turned inside out';
     Passwords.encryptPassword({
       password: password
     }).switch({
