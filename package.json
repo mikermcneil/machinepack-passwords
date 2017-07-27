@@ -29,7 +29,7 @@
     "machineDir": "lib/",
     "machines": [
       "check-password",
-      "encrypt-password"
+      "hash-password"
     ]
   },
   "devDependencies": {
