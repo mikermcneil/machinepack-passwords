@@ -24,15 +24,15 @@
   },
   "machinepack": {
     "friendlyName": "Passwords",
-    "machineDir": "machines/",
-    "machines": [
+    "machineDir": "lib/",
+    "lib": [
       "check-password",
       "encrypt-password"
     ]
   },
   "devDependencies": {
+    "chai": "3.5.0",
     "mocha": "^3.0.0",
-    "test-machinepack-mocha": "^2.1.1",
-    "chai": "^3.5.0"
+    "test-machinepack-mocha": "^2.1.1"
   }
 }
