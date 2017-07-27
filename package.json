@@ -1,12 +1,14 @@
 {
   "name": "machinepack-passwords",
   "version": "2.3.0",
-  "description": "Encrypt or compare passwords.",
+  "description": "Hash and compare passwords using the one-way bcrypt algorithm.",
   "scripts": {
     "test": "node ./node_modules/test-machinepack-mocha/bin/testmachinepack-mocha.js && mocha tests/*.js"
   },
   "keywords": [
-    "Passwords",
+    "passwords",
+    "bcrypt",
+    "hash",
     "machines",
     "machinepack"
   ],
@@ -14,7 +16,7 @@
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "2.3.0",
-    "machine": "^13.0.0-0"
+    "machine": "^15.0.0-2"
   },
   "repository": {
     "type": "git",
